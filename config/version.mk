@@ -17,3 +17,8 @@ LINEAGE_VERSION := PhoenixOS-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$
 
 # Display version
 LINEAGE_DISPLAY_VERSION := PhoenixOS-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(LINEAGE_BUILD)-v$(PHOENIX_VERSION)
+
+ifeq ($(WITH_GAPPS), true)
+    $(call inherit-product, vendor/gapps/common/common-vendor.mk)
+    LINEAGE_BUILD_ZIP_TYPE := GAPPS
+endif
